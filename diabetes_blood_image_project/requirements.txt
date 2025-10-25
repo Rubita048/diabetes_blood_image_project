@@ -2,12 +2,5 @@ streamlit
 pandas
 numpy
 scikit-learn
-opencv-python
-torch
-torchvision
 Pillow
-scikit-image
 joblib
-matplotlib
-seaborn
-medmnist
