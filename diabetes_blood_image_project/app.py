@@ -8,7 +8,7 @@ from PIL import Image
 # 📁 Dosya yolları
 # ============================================================
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "models", "final_rf_v2.joblib")
+MODEL_PATH = os.path.join(BASE_DIR, "../../models/final_rf_v2.joblib")
 
 # ============================================================
 # 🧠 Modeli yükleme
@@ -17,10 +17,9 @@ MODEL_PATH = os.path.join(BASE_DIR, "models", "final_rf_v2.joblib")
 def load_model():
     try:
         model = joblib.load(MODEL_PATH)
-        return model
     except Exception as e:
         st.error(f"Model yüklenemedi: {e}")
-        return None
+        model = None
 
 model = load_model()
 
