@@ -1,7 +1,8 @@
 streamlit
-pandas
 numpy
+pandas
 scikit-learn
-Pillow
+opencv-python
+pillow
 joblib
-scikit-learn==1.3.2
+matplotlib

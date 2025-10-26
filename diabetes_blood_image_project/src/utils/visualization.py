@@ -1,14 +1,11 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
 
-def plot_correlation(df):
-    plt.figure(figsize=(10,8))
-    sns.heatmap(df.corr(), cmap='coolwarm')
-    plt.title("Özellik Korelasyonu")
-    plt.show()
-
-def plot_feature_scatter(df, x="circularity", y="contrast"):
-    plt.figure(figsize=(8,6))
-    sns.scatterplot(x=x, y=y, hue="label", data=df, palette="tab10", alpha=0.7)
-    plt.title(f"{x} vs {y}")
+def plot_feature_importance(model, feature_names):
+    importances = model.feature_importances_
+    indices = importances.argsort()[::-1]
+    plt.figure(figsize=(8, 4))
+    plt.bar(range(len(importances)), importances[indices])
+    plt.xticks(range(len(importances)), [feature_names[i] for i in indices], rotation=45)
+    plt.title("Özellik Önemleri")
+    plt.tight_layout()
     plt.show()

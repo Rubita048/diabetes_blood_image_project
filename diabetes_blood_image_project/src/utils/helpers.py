@@ -1,6 +1,5 @@
-import pandas as pd
+import numpy as np
 
-def save_features(features, path="../results/features_train.csv"):
-    df = pd.DataFrame(features)
-    df.to_csv(path, index=False)
-    print(f"✅ Özellikler kaydedildi: {path}")
+def normalize_data(X):
+    """Veri ölçekleme."""
+    return (X - np.mean(X, axis=0)) / np.std(X, axis=0)

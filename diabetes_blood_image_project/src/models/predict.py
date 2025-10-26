@@ -1,8 +1,12 @@
-# src/models/predict.py
+import joblib
 import numpy as np
 
-def predict_diabetes(model, features: dict):
-    """Verilen özelliklere göre diyabet olasılığı döndürür."""
-    feature_values = np.array(list(features.values())).reshape(1, -1)
-    prob = model.predict_proba(feature_values)[0, 1]
-    return prob
+def load_model(path="models/final_rf_v2.joblib"):
+    try:
+        return joblib.load(path)
+    except Exception as e:
+        print("❌ Model yüklenemedi:", e)
+        return None
+
+def predict(model, features):
+    return model.predict(np.array(features).reshape(1, -1))

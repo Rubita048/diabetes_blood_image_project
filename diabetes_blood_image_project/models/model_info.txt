@@ -1,0 +1,13 @@
+MODEL INFORMATION
+-----------------
+Model: RandomForestClassifier
+Dosya: final_rf_v2.joblib
+Amaç: Kan parametrelerinden diyabet olasılığı tahmini
+
+Eğitim Verisi:
+ - features_week1.csv
+ - Özellikler: glucose, insulin, bmi, age, blood_pressure, cholesterol
+
+Değerlendirme:
+ - Train/Test oranı: 80/20
+ - Tahmini doğruluk: ~90%

@@ -1,9 +1,9 @@
-from medmnist import BloodMNIST
-from torchvision import transforms
+from src.data.load_data import load_features
+from src.data.preprocessing import clean_data
 
-def load_bloodmnist(train=True):
-    transform = transforms.Compose([
-        transforms.ToTensor()
-    ])
-    dataset = BloodMNIST(split='train' if train else 'test', transform=transform, download=True)
-    return dataset
+def get_dataset(week=1):
+    df = load_features(week)
+    df = clean_data(df)
+    X = df.drop(columns=["label"])
+    y = df["label"]
+    return X, y
